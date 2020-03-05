@@ -97,18 +97,10 @@ int LL<T>::list_length()
 template <class T>
 string LL<T>::retrieve_front()
 {
-//	try				//apparently i don't need this
-//	{
-		if (!llh)
-		{
-			throw string ("**Error: Cannot call retrieve_front on empty list.");
-		}
-//	}
-//	catch(string &x)
-//	{
-//		cout << x << endl;
-//	}
-
+	if (!llh)
+	{
+		throw string ("**Error: Cannot call retrieve_front on empty list.");
+	}
 	return llh->theData;
 }
 
@@ -120,24 +112,17 @@ string LL<T>::retrieve_back()
 	LLnode* tempNodePointer = new LLnode;
 	tempNodePointer = llh;
 
-//	try
-//	{
-		if (!llh)
-		{
-			throw string ("**Error: Cannot call retrieve_back on empty list.");
-		}
-//	}
-//	catch(string &x)
-//	{
-//		cout << x << endl;
-//	}
+	if (!llh)
+	{
+		throw string ("**Error: Cannot call retrieve_back on empty list.");
+	}
 
 	while (tempNodePointer->fwdPtr != nullptr)
 	{
 		tempNodePointer = tempNodePointer->fwdPtr;
 		backName = tempNodePointer->theData;
 	}
-		return backName;
+	return backName;
 }
 
 template <class T>
@@ -227,11 +212,7 @@ bool LL<T>::delete_node(T value)
 	}
 
 	//case 3: header does not have key
-	//...i now realize this code looks like spaghetti but i'm pretty sure it works
-	//3 temporary nodes, "current" and "next" and "last" (representing the current node, next node being looked at, and the node after that, respectively)
-		//when the key is found, "next" is deleted, while "current" is made to point to "last"
-
-	LLnode* next = new LLnode;	//initialize outside of while loop
+	LLnode* next = new LLnode;	
 	next = llh->fwdPtr;
 
 	while (next)	//while next is not null
@@ -240,7 +221,6 @@ bool LL<T>::delete_node(T value)
 		{
 			LLnode* last = new LLnode;
 			last = next->fwdPtr;
-			//cout << "Delete_Node called, now deleting " << next->theData << "..." << endl;
 			delete next;
 			current->fwdPtr = last;		//bridge the "gap" left behind by deleting next
 			return true;
