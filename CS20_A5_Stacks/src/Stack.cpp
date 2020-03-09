@@ -10,7 +10,6 @@ Stack::Stack(int s)
 	countOfArrays = 1;
 }
 bool Stack::push(string s){
-	//cout << "push: Adding element - " << s << endl;
 	if(topElement==size)	//if current array is full
 	{
 		//cout << "push:   Looks like the array is full, making another... " << endl;
@@ -56,15 +55,6 @@ bool Stack::top(string &s)
 	{
 		if(countOfArrays==1) //stack is empty if topElement is 0 AND only 1 array
 			return false;
-//		else //if top element is 0 but isn't first array
-//		{
-//			delete[]arrPtr.back(); //delete back
-//			arrPtr.pop_back();  // remove the pointer also
-//			countOfArrays--;
-//			topElement=size-1;
-//			s=arrPtr.back()[topElement];
-//			return true;
-//		}
 	}
 	else
 	{
