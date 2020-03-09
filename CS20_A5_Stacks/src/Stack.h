@@ -14,5 +14,5 @@ public:
 	bool top(string&);
 	bool pop(string&);
 	void destroy();
-	~Stack();  //destructor, not sure if we need this but w/e
+	~Stack();  
 };
