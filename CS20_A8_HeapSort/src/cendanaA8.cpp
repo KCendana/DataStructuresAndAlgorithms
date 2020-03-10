@@ -16,7 +16,6 @@ void buildArray(int array[], int arraySize, string pathName)
 	{
 		while(getline(myfile,line)) //get data line by line
 		{
-			//cout << line << endl;
 			s = line;
 		}
 		    myfile.close();
@@ -35,7 +34,6 @@ void buildArray(int array[], int arraySize, string pathName)
 				break;
 			}
 			int data = stoi(s.substr(counter,3)); //take 3 integers from the string and turn into int
-			//cout << "Adding " << data << " to array[" << i << "]... ";
 			array[i] = data;
 			counter += 3; //counter increments by 3 since we want 3 integers per int
 			i++;
@@ -65,14 +63,12 @@ bool checkIfHeap(int array[], int low, int high)
 		//check left child
 		if (array[2 * i + 1] > array[i])
 		{
-			//cout << "isHeap: Not a heap." << endl;
 			return false;
 		}
 
 		//check right child
 		if (high > 2 * i + 2 && array[2*i+2] > array[i])
 		{
-			//cout << "isHeap: Not a heap." << endl;
 			return false;
 		}
 	}
@@ -129,37 +125,10 @@ void heapSort(int array[], int low, int high) //may be incorrect!
     	array[0] = temp;
     	heapify(array, 0, i - 1);
     }
-
-//    for (int i = high - 1; i >= 0; i--)
-//    {
-//    	if array[i] <
-//    }
 }
 
 int main()
 {
-//My Test Code~~~~~~~~~~~~~~`
-//	int low = 0;
-//	int high = 99;
-//	bool b;
-//	string fileName = "c:/CS20/a81data.txt";
-//	int array[100];
-//	buildArray(array, high, fileName);
-//	//displayArray(array, low, high);
-//	b = checkIfHeap (array, low, high);
-//		if (b)
-//			cout << "main: the first array is already a heap" << endl << endl;
-//		else
-//			cout << "main: the first array is not a heap" << endl << endl;
-//	buildHeap(array, low, high);
-//	displayArray(array,low,high);
-//	b = checkIfHeap (array, low, high);
-//			if (b)
-//				cout << "main: the array is now a heap after buildHeap" << endl << endl;
-//			else
-//				cout << "main: the array is still not a heap" << endl << endl;
-//	heapSort(array, low, high);
-//	displayArray(array, low, high);
 
 //Professor Test Code~~~~~~~~~~~~~~~~~~~~
 	int low, high;
