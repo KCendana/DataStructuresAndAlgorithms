@@ -1,9 +1,3 @@
-/*
- * Queue.cpp
- *
- *  Created on: Oct 20, 2019
- *      Author: cenda
- */
 
 #include "Queue.h"
 
@@ -46,14 +40,8 @@ bool Queue::isEmpty()
 
 void Queue::addElement(Transaction &element)
 {
-	//if queue is not full
-	//move queueRear
-	//num elements + 1
-	//add new transaction to the back of the queue (queueRear)
-
 	if (this->isFull() == false)
 	{
-		//cout << "addTransaction: Adding " << element.ID << " to the Queue... ";
 		queueRear = (queueRear + 1) % maxQueueSize;
 		numElements++;
 		list[queueRear] = element;
@@ -61,7 +49,7 @@ void Queue::addElement(Transaction &element)
 	}
 	else
 	{
-		//cout << "Queue is full. " << endl;
+		cout << "Queue is full. " << endl;
 	}
 }
 
@@ -69,9 +57,6 @@ void Queue::deleteElement()
 {
 	if (!isEmpty())
 	{
-//		cout << "deleteTransaction: Removing front of queue: " << list[queueFront].ID << endl;
-//		list[queueFront].ID = ""; //not needed, for clarity
-//		list[queueFront].workUnits = 0; //not needed, for clarity;
 		numElements--;
 		queueFront = (queueFront + 1) % maxQueueSize;
 	}
