@@ -47,11 +47,10 @@ LL<T>::LL()
 template <class T>
 void LL<T>::push_front(T newData)
 {
-	//my way
-	LLnode* newNode = new LLnode;	//make new node
+	LLnode* newNode = new LLnode;		//make new node
 	newNode->theData = newData;		//give new node the data
-	newNode->fwdPtr = llh;	//make new node's fwdptr the old node (element 0 is moved to 1)
-	llh = newNode;	//new node now takes old node's spot	(element 1 is moved to 0)
+	newNode->fwdPtr = llh;			//make new node's fwdptr the old node (element 0 is moved to 1)
+	llh = newNode;				//new node now takes old node's spot	(element 1 is moved to 0)
 }
 
 template <class T>
@@ -226,8 +225,7 @@ bool LL<T>::search_list_helper(T value, LLnode* & node)
 			return search_list_helper(value, node->fwdPtr);
 		}
 	}
-	//cout << value << " has not been found. Returning false. " << endl;
-	return false;	//we searched all nodes until we got null, and there's still no value found, so false
+	return false;	
 }
 
 template <class T>
@@ -237,7 +235,7 @@ bool LL<T>::delete_node(T value)
 	if(!llh)
 	{
 		cout << "delete_node: Linked List is empty. " << endl;
-		return false;	//if the list is empty, we're pretty much done
+		return false;
 	}
 
 	//case 2: header has key
@@ -245,14 +243,12 @@ bool LL<T>::delete_node(T value)
 	{
 		LLnode* current = new LLnode;
 		current = llh;
-		//cout << "Delete_Node called, now deleting " << current->theData << " in header" << endl;
 		llh = llh->fwdPtr;
 		delete current;
 		return true;
 	}
 
 	//case 3: header is not empty and does not have key
-	//cout << "key not found in header" << endl;
 	return delete_node_helper(value, llh);
 
 }
@@ -270,14 +266,12 @@ bool LL<T>::delete_node_helper(T value, LLnode* & node)
 			{
 				LLnode* temp = new LLnode;
 				temp = node->fwdPtr;	//create copy of 2
-				//cout << "Found " << node->fwdPtr->theData << " at last node, deleting" << endl;
 				node->fwdPtr = nullptr;	//if we're deleting a node at the end, fill spot with nullptr
 				delete temp;
 				return true;
 			}
 			LLnode* temp = new LLnode;
 			temp = node->fwdPtr;	//create copy of 2
-			//cout << "Found " << node->fwdPtr->theData << ", deleting" << endl;
 			node->fwdPtr = node->fwdPtr->fwdPtr; // 1 now links to 3
 			delete temp;	//delete 2
 			return true;
