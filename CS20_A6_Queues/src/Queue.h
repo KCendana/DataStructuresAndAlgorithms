@@ -1,9 +1,3 @@
-/*
- * Queue.h
- *
- *  Created on: Oct 20, 2019
- *      Author: cenda
- */
 
 #ifndef QUEUE_H_
 #define QUEUE_H_
@@ -15,13 +9,6 @@ struct Transaction
 {
 	string ID;
 };
-
-//struct Server
-//{
-//	bool busy;
-//	int speed;
-//	int time ;
-//};
 
 class Queue {
 private:
